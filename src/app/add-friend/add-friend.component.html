@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main-content">
+  <div class="container col-12 col-sm-6">
+    <form [formGroup]="addFriendForm">
+      <div class="segment">
+        <h1>Add Friend</h1>
+      </div>
+      <label>
+        <input type="number" placeholder="Enter Phone Number" formControlName="friendAndFamily" />
+        <div [ngStyle]="{color: 'red', fontSize: '120%', fontWeight: '700'}"
+          *ngIf="(addFriendForm.controls['friendAndFamily'].errors && (addFriendForm.controls['friendAndFamily'].dirty || addFriendForm.controls['friendAndFamily'].touched))">
+          <div *ngIf="addFriendForm.controls.friendAndFamily.errors.required">Phone No is required</div>
+          <div *ngIf="addFriendForm.controls.friendAndFamily.errors.pattern">Phone No should be exactly 10 digits and starts with 7,8 or 9</div>
+        </div>
+      </label>
+      <div [ngStyle]="{textAlign: 'center'}">
+        <button type="button" [disabled]="!addFriendForm.valid" (click)="addFriend()">
+          <i class="icon pi pi-user-plus"></i>
+          <span>Add Friend</span>
+        </button>
+        <div class="text-danger" [ngStyle]="{color: 'red', fontSize: '120%', fontWeight: '700'}"> {{errMsg}} </div>
+        <div class="text-success" [ngStyle]="{color: 'green', fontSize: '120%', fontWeight: '700'}">{{successMsg}}</div>
+      </div>      
+    </form>
+  </div><br>
+</div>

@@ -1,0 +1,40 @@
+.red {
+  color: red;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.p-dropdown {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  user-select: none;
+  width: 100%;
+}
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+
+/* New styling added from here */
+.main-content {
+  margin-top: 4.75%;
+}
+
+@media only screen  and (max-device-width : 414px) {
+  .main-content {
+    margin-top: 25%;
+  }
+
+}

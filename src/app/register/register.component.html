@@ -1,0 +1,128 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-primary navbar-dark" id="headerStyle">
+  <a class="navbar-brand" [routerLink]="['/login']">MyTel
+  </a>
+</nav>
+<div class="main-content">
+  <div class="container col-12 col-sm-6">
+    <div class="card panel-default">
+      <div class="card-body">
+        <h3 class="card-title text-center">Register</h3>
+        <form [formGroup]="registerForm">
+          <div class="ui-fluid p-formgrid p-grid">
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="phoneNo">Phone No </label><span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <input type="number" pInputText name="phoneNo" formControlName="phoneNo">
+                <div
+                  *ngIf="(registerForm.controls['phoneNo'].errors && (registerForm.controls['phoneNo'].dirty || registerForm.controls['phoneNo'].touched))"
+                  class="red">
+                  <div *ngIf="registerForm.controls.phoneNo.errors.required">Phone No is required</div>
+                  <div *ngIf="registerForm.controls.phoneNo.errors.pattern">Phone No should begin with 7,8 or 9</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="name">Name </label>&nbsp;<span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <input type="text" pInputText name="name" formControlName="name">
+                <div
+                  *ngIf="(registerForm.controls['name'].errors && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched))"
+                  class="red">
+                  Name is required
+                </div>
+              </div>
+
+            </div>
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="password">Password </label>&nbsp;<span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <input type="password" pInputText name="password" formControlName="password">
+                <div
+                  *ngIf="(registerForm.controls['password'].errors && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched))"
+                  class="red">
+                  Password is required
+                </div>
+              </div>
+            </div>
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="age">Age </label>&nbsp;<span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <input type="number" pInputText name="age" formControlName="age">
+                <div
+                  *ngIf="(registerForm.controls['age'].errors && (registerForm.controls['age'].dirty || registerForm.controls['age'].touched))"
+                  class="red">
+                  Age is required
+                </div>
+              </div>
+            </div>
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="gender">Gender </label>&nbsp;<span class="red">*</span></div>
+              <!--  <input type="radio" name="gender" value="M" formControlName="gender">Male &nbsp;&nbsp;
+              <input type="radio" name="gender" value="F" formControlName="gender">Female -->
+              <div class="p-formgroup-inline col-sm-9 col-8">
+                <div class="p-field-checkbox">
+                  <p-radioButton name="gender" value="M" formControlName="gender" inputId="gender1" label="Male">
+                  </p-radioButton>
+                </div>
+                <div class="p-field-checkbox">
+                  <p-radioButton name="gender" value="F" formControlName="gender" inputId="gender2" label="Female">
+                  </p-radioButton>
+                </div>
+                <div
+                  *ngIf="(registerForm.controls['gender'].errors && (registerForm.controls['gender'].dirty || registerForm.controls['gender'].touched))"
+                  class="red">
+                  Gender is required
+                </div>
+              </div>
+            </div>
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="address">Address </label>&nbsp;<span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <input type="text" pInputText name="address" formControlName="address">
+                <div
+                  *ngIf="(registerForm.controls['address'].errors && (registerForm.controls['address'].dirty || registerForm.controls['address'].touched))"
+                  class="red">
+                  Address is required
+                </div>
+              </div>
+            </div>
+
+            <div class="p-field p-grid col-12">
+              <div class="col-sm-3 col-4">
+                <label for="planId">Plan Id </label>&nbsp;<span class="red">*</span></div>
+              <div class="col-sm-9 col-8">
+                <fieldset formGroupName="currentPlan">
+                  <!-- <select class="form-control" formControlName="planId">
+                  <option value="1">INFY_60</option>
+                  <option value="2">INFY_10</option>
+                  <option value="3">INFY_30</option>
+                </select> -->
+                  <p-dropdown [options]="plans" size="100" placeholder="Select a Current Plan" formControlName="planId">
+                  </p-dropdown>
+                  <div
+                    *ngIf="(registerForm.controls['currentPlan'].errors && (registerForm.controls['currentPlan'].dirty || registerForm.controls['currentPlan'].touched))"
+                    class="red">
+                    Plan Id is required
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+          <div class="p-field text-center">
+            <button type="button" pButton [disabled]="!registerForm.valid" (click)="register()"
+              label="Register"></button>
+            <button type="button" pButton class="btnMargin" [routerLink]="['/login']" label="Login"></button>
+          </div>
+        </form>
+        <div class="text-success">{{successMsg}}</div>
+        <div class="text-danger">{{errorMsg}}</div>
+      </div>
+    </div>
+  </div>
