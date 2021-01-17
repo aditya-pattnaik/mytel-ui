@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="main-content">
+  <div *ngIf="!planDetails" [ngStyle]="{textAlign: 'center'}">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  <section >
+    <div class="container" *ngIf="planDetails">
+      <div class="row">
+        <div class="col-4" *ngFor="let plan of planDetails" [ngStyle]="{marginTop: '30px'}">
+          <div class="text-center">
+            <div class="card-deck row no-gutters">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body text-left">
+                    <p class="card-text">Plan ID: {{plan.planName}} </p>
+                    <span class="font-lead-base font-weight-bold text-muted">National Rate:</span>
+                    <div class="promotion-promo">Rs. {{plan.nationalRate}}</div>
+                    <div class="promotion-price">
+                      <div class="promotion-price-desc">Local Rate</div>
+                      <div class="promotion-price-text">Rs.{{plan.localRate}}</div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <h5 class="card-title m-0 p-0 font-weight-bolder">{{plan.planName}}</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

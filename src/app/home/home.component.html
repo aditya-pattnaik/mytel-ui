@@ -1,0 +1,66 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="headerStyle">
+  <a class="navbar-brand" [routerLink]="['/login']">MyTel
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-capitalize" [routerLink]="['/login']" [routerLinkActive]="['activeLink']">
+          Logout &nbsp; <i class="pi pi-sign-out"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div [ngStyle]="{marginTop: '140px'}">
+  <p-carousel [value]="tasks" [numVisible]="3" [numScroll]="1" [circular]="true"
+    [responsiveOptions]="responsiveOptions">
+
+    <ng-template let-task pTemplate="item">
+      <div class="card" [routerLink]="['/'+task.route+'']" [ngStyle]="{background: 'linear-gradient(#65C7F7, #0052D4)'}">
+        <div class="card_image">
+          <i [class]="'task-image '+task.icon"></i>
+        </div>
+        <div class="card_title taskName">
+          <p>{{task.name}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="headerStyle">
+  <a class="navbar-brand" [routerLink]="['/login']">MyTel
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link text-capitalize" [routerLink]="['/login']" [routerLinkActive]="['activeLink']">
+          Logout &nbsp; <i class="pi pi-sign-out"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row main-content" *ngIf="tasks">
+    <div class="page-content">
+      <div class="card" *ngFor="let task of tasks">
+        <i [class]="'task-image '+task.icon"></i>
+        <div class="content">
+          <h2 class="title">{{task?.name}}</h2>
+          <p class="copy">{{task?.description}}</p>
+          <button class="btn" [routerLink]="['/'+task.route+'']">View</button>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+</div>

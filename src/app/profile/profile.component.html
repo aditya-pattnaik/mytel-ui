@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="main-content">
+  <div class="container col-12 col-sm-6">
+    <div class="text-center" *ngIf="!profileDetail">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+    <div *ngIf="profileDetail">
+      <article class="cssui-usercard">
+        <div class="cssui-usercard__body">
+          <header class="cssui-usercard__header">
+            <img *ngIf="profileDetail.gender === 'M'" [src]="maleImage" class="cssui-usercard__avatar" alt="Avatar">
+            <img *ngIf="profileDetail.gender === 'f'" [src]="femaleImage" class="cssui-usercard__avatar" alt="Avatar">
+            <div class="cssui-usercard__header-info">
+              <h3 class="cssui-usercard__name">{{profileDetail.phoneNo}}</h3>
+              <span class="cssui-usercard__post">Age: {{profileDetail.age}} | Gender: {{profileDetail.gender}}</span>
+              <span class="cssui-usercard__post">Address: {{profileDetail.address}}</span>
+            </div>
+          </header>
+          <div class="wrapper">
+            <div class="tabs">
+              <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch">
+                <label for="tab-1" class="tab-label">Friends</label>
+                <div class="tab-content">
+                  <div class="row">
+                    <div class="col-3 p-3" *ngFor="let data of profileDetail.friendAndFamily; let i=index">
+                      <div class="card p-2">
+                        <span class="cssui-stats__name cssui-usercard__stats-name">Friend {{i + 1}}</span>
+                        <span class="cssui-stats__value">{{data}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+                <label for="tab-3" class="tab-label">Plan Details: {{profileDetail.currentPlan.planName}}</label>
+                <div class="tab-content">
+                  <div class="row">
+                    <div class="col-4 p-3">
+                      <div class="card p-2">
+                        <span class="cssui-stats__name cssui-usercard__stats-name">Plan Id</span>
+                        <span class="cssui-stats__value">{{profileDetail.currentPlan.planId}}</span>
+                      </div>
+                    </div>
+                    <div class="col-4 p-3">
+                      <div class="card p-2">
+                        <span class="cssui-stats__name cssui-usercard__stats-name">National Rate</span>
+                      <span class="cssui-stats__value">{{profileDetail.currentPlan.nationalRate}}</span>
+                      </div>
+                    </div>
+                    <div class="col-4 p-3">
+                      <div class="card p-2">
+                        <span class="cssui-stats__name cssui-usercard__stats-name">Local Rate</span>
+                        <span class="cssui-stats__value">{{profileDetail.currentPlan.localRate}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

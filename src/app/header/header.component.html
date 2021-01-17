@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="headerStyle">
+    <a class="navbar-brand" [routerLink]="['/login']" style="font-size: 1.5em;">MyTel
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link text-capitalize" [routerLink]="['/profile']" [routerLinkActive]="['activeLink']">
+                    <!-- <i class="pi pi-user"></i>  -->
+                    View Profile
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-capitalize" [routerLink]="['/add-friend']"
+                    [routerLinkActive]="['activeLink']">
+                    <!-- <i class="pi pi-user-plus"></i>  -->
+                    Add Friends</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-capitalize" [routerLink]="['/call-details']"
+                    [routerLinkActive]="['activeLink']">
+                    <!-- <i class="fa fa-phone"></i> -->
+                    Call Details
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-capitalize" [routerLink]="['/view-plan']" [routerLinkActive]="['activeLink']">
+                    <!-- <i class="pi pi-list"></i> -->
+                    View Plans
+                </a>
+            </li>
+        </ul>
+        <div class="my-2 my-lg-0">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-capitalize" [routerLinkActive]="['activeLink']" [routerLink]="['/login']">
+                        Logout &nbsp; 
+                        <i class="pi pi-sign-out"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
